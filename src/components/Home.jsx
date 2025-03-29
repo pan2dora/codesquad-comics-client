@@ -12,6 +12,8 @@ function Home() {
           </a>
           <div>{book.title}</div>
           <div>{book.author}</div>
+          <div>{book.publisher}</div>
+          <div>{book.pages}</div>
           <div>{book.rating}</div>
           <div>{book.synopsis}</div>
           <a href="#" class="home-detail-link"><div>Details</div></a>
