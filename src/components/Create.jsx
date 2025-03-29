@@ -7,7 +7,7 @@ function Create() {
         {/* <!--Title Text--> */}
         <div className="create-form-text">
           <div>
-            <label for="title">Title</label>
+            <label htmlFor="title">Title</label>
             <input
               type="text"
               id="title"
@@ -19,7 +19,7 @@ function Create() {
           <br />
           {/* <!--Author Text--> */}
           <div>
-            <label for="author">Author</label>
+            <label htmlFor="author">Author</label>
             <input
               type="text"
               id="author"
@@ -51,7 +51,7 @@ function Create() {
           <br />
           {/* <!--Genre Text--> */}
           <div>
-            <label for="genre">Genre</label>
+            <label htmlFor="genre">Genre</label>
             <input
               type="text"
               id="genre"
@@ -63,7 +63,7 @@ function Create() {
           <br />
           {/* <!--Pages Text--> */}
           <div>
-            <label for="pages">Number of pages:</label>
+            <label htmlFor="pages">Number of pages:</label>
             <input
               type="text"
               id="pages"
@@ -74,8 +74,8 @@ function Create() {
           </div>
           <br />
           {/* <!--Rating Text--> */}
-          <div>
-            <label for="rating">Rating:</label>
+          {/* <div>
+            <label htmlFor="rating">Rating:</label>
             <input
               type="text"
               id="rating"
@@ -83,11 +83,11 @@ function Create() {
               required
               style="width: 25px"
             />
-          </div>
+          </div> */}
           <br />
           {/* <!--Synopsis--> */}
           <div>
-            <label for="form-text">Synopsis:</label>
+            <label htmlFor="form-text">Synopsis:</label>
             <textarea
               id="form-text"
               cols="20"
