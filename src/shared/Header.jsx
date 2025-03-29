@@ -1,7 +1,7 @@
-function Footer() {
+function Header() {
     return (
-      <div>Footer</div>
+      <div>Header</div>
     )
   }
 
-  export default Footer;
+  export default Header;
