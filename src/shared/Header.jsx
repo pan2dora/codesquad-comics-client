@@ -2,7 +2,7 @@ function Header() {
     return (
     
     <header className="navbar-header">
-          <div>Header</div>
+        
       {/* <!---------------------------------------- Nav Bar -------------------------------------------------------------> */}
       <nav className="navbar-container">
         {/* <!---------------------------------------Logo ----------------------------------------------------------------> */}
@@ -10,7 +10,7 @@ function Header() {
           <a href="index.html">
             <img
             className="navbar-logo"
-              src="public/images/CodeSquad-Comics-logo.png"
+              src="public/images/CodeSquad-Comics-logo.jpg"
               alt="CodeSquad comic logo"
             />
           </a>

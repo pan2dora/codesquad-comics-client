@@ -42,7 +42,7 @@ function Footer() {
             >
               <img
                 className="footer-logo"
-                src="public/images/CodeSquad-logo-b.png"
+                src="public/images/CodeSquad-logo.jpg"
                 alt="White and Red CodeSquad.org logo"
             /></a>
           </div>
