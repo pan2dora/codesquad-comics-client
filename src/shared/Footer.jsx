@@ -4,7 +4,7 @@ function Footer() {
         <footer className="footer-container">
           {/* <!-------------------------------------------Visit Block------------------------------------------> */}
           <div>
-            <h2>VISIT US</h2>
+            <h3>VISIT US</h3>
             <span>CodeSquad Comics</span> <br />
             <span>123 Dochester Avenue</span><br />
             <span>Boston Ma 02124</span>
@@ -13,7 +13,7 @@ function Footer() {
           {/* <!-- -------------------------------Start of footer-links block -------------------------------------------> */}
     
           <div className="footer-links">
-            <h2>LINKS</h2>
+            <h3>LINKS</h3>
             <a href="#">Home</a>
             <br />
             <a href="#">About</a>
@@ -22,7 +22,7 @@ function Footer() {
           </div>
           {/* <!---------------------------------------------Follow Us-----------------------------------------------------> */}
           <div className="footer-links ">
-            <h2>FOLLOW US</h2>
+            <h3>FOLLOW US</h3>
             <div className="footer-icons">
             <a href="#"><i className="fa-brands fa-square-facebook"></i></a>
             <br />
@@ -34,7 +34,7 @@ function Footer() {
     
           {/* <!------------------------------------------Footer Logo-----------------------------------------------> */}
           <div>
-            <h2>A PRODUCT OF</h2>
+            <h3>A PRODUCT OF</h3>
             <a
               href="https://www.codesquad.org/"
               target="_blank"

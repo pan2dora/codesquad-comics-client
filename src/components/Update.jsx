@@ -5,7 +5,7 @@ function Update() {
         <form >
           {/* <!--Title Text--> */}
           <div>
-            <label htmlFor="title">Title:</label>
+            <label htmlFor="title">Update:</label>
             <input
               type="text"
               className="title"

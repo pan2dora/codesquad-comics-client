@@ -7,7 +7,7 @@ function Create() {
         {/* <!--Title Text--> */}
         <div className="create-form-text">
           <div>
-            <label htmlFor="title">Title</label>
+            <label htmlFor="title">Create</label>
             <input
               type="text"
               id="title"

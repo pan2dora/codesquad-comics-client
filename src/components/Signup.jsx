@@ -2,11 +2,11 @@ function Signup() {
     return (
       <main>
         <div className="home-collection-container">
-    <h1 className="home-blerb-title">LOGIN</h1>
+    <h1 className="home-blerb-title">Signup</h1>
     <form className="login-form">
       {/* First Name */}
       <div>
-        <label htmlFor="name">First Name:</label>
+        <label htmlFor="firstName">First Name:</label>
         <input 
           type="firstname"
           placeholder="first Name"
@@ -18,7 +18,7 @@ function Signup() {
       </div>
       {/* Last Name */}
       <div>
-        <label htmlFor="name">Last Name:</label>
+        <label htmlFor="lastName">Last Name:</label>
         <input 
           type="lastname"
           placeholder="last Name"
