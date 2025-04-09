@@ -1,12 +1,25 @@
 // Update the component params to recieve deconstructured props
 function Login({user, setUser}) {
   console.log("In login",user)
+// Build login func to handle submission
+const handleLogin = (e) =>{
+  // prevent default behavior
+e.preventDefault(console.log("Login submitted"))
+
+// print out each submission 
+console.log("Email", document.getElementById("email").value)
+console.log("password", document.getElementById("password").value)
+
+
+}
+
+
 
     return (
      <main>
       <div className="home-collection-container">
     <h1 className="home-blerb-title">LOGIN</h1>
-    <form className="login-form">
+    <form onSubmit={handleLogin} className="login-form">
       {/* <!--Email--> */}
   
       <div>
