@@ -1,7 +1,18 @@
 import booksData from "../data/books";
+import { useEffect, useState } from "react";
 
 function Admin() {
+
+const [books, setBooks] = useState([])
+
+useEffect(()=> {
+  setBooks(booksData)
+console.log("Use effect works")
+
+},[])
+
     return (
+     
       <>
         <thead>
             {/* <!--Data--> */}
@@ -12,9 +23,9 @@ function Admin() {
             </tr>
           </thead>
           <tbody>
-      {booksData.map((book) => 
+      {books.map((book) => 
      
-     <tr>
+     <tr key={book.id}>
               <td scope="row">{book.title}</td>
               <td>
                 <a href="#"><button class="edit-btn">EDIT</button></a>

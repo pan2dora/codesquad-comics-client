@@ -1,3 +1,5 @@
+// This is a reusable data that is used in Home and Admin
+
 const books = [
   {
     _id: "66b62a49-a8de-4914-ab3f-49fe0554c08a",
