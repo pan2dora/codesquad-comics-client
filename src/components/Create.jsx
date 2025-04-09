@@ -1,13 +1,29 @@
 function Create() {
+// Build an arrow func to handle the create form submissions.
+const handleSubmit = (e) =>{
+  // Method to prevent default behavior of form submission
+
+  e.preventDefault(console.log("Submitted"))
+// Print message to console that this ran 
+// Note: Not sure if this is the correct way but was the first way I thought to excute this 
+console.log("Title submitted:", document.getElementById("title").value)
+console.log("Author submitted:", document.getElementById("author").value)
+console.log("Genre submitted:", document.getElementById("genre").value)
+console.log("Pages submitted:",document.getElementById("pages").value)
+
+
+}
+
+
     return (
       <main>
          <div className="home-collection-container">
       <h1 className="home-blerb-title">CREATE NEW COMIC</h1>
-      <form className="create-form">
+      <form onSubmit={handleSubmit} className="create-form">
         {/* <!--Title Text--> */}
         <div className="create-form-text">
           <div>
-            <label htmlFor="title">Create</label>
+            <label htmlFor="title">Title</label>
             <input
               type="text"
               id="title"
@@ -96,7 +112,7 @@ function Create() {
           </div>
         </div>
 
-        <input type="submit" value="Submit" name="button" className="btn" />
+        <input  type="submit" value="Submit" name="button" className="btn" />
       </form>
     </div>
      

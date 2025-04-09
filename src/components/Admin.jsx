@@ -9,6 +9,7 @@ useEffect(()=> {
   setBooks(booksData)
 console.log("Use effect works")
 
+
 },[])
 
     return (
@@ -28,7 +29,7 @@ console.log("Use effect works")
      <tr key={book.id}>
               <td scope="row">{book.title}</td>
               <td>
-                <a href="#"><button class="edit-btn">EDIT</button></a>
+                <a href="#"><button className="edit-btn">EDIT</button></a>
               </td>
               <td><button class="delete-btn">DELETE</button></td>
             </tr>
