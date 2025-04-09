@@ -1,10 +1,21 @@
 // Update the component params to recieve deconstructured props
 function Signup({user, setUser}) {
+
+  const handleSignup = (e)=>{
+  e.preventDefault(console.log("Submitted"))
+
+  console.log("Signup Name:",document.getElementById("name").value)
+  console.log("Signup Last Name:",document.getElementById("lastname").value)
+  console.log("Signup email:",document.getElementById("email").value)
+  console.log("Signup Password:",document.getElementById("password").value)
+
+  }
+
     return (
       <main>
         <div className="home-collection-container">
     <h1 className="home-blerb-title">Signup</h1>
-    <form className="login-form">
+    <form onSubmit={handleSignup} className="login-form">
       {/* First Name */}
       <div>
         <label htmlFor="firstName">First Name:</label>
