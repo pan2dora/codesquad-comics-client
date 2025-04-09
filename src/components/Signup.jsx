@@ -1,4 +1,5 @@
-function Signup() {
+// Update the component params to recieve deconstructured props
+function Signup({user, setUser}) {
     return (
       <main>
         <div className="home-collection-container">

@@ -1,7 +1,18 @@
+import { useState } from "react";
 import booksData from "../data/books";
 
 
 function Home() {
+// Use state to hold data for books 
+const [books, setBooks] = useState([])
+
+const handleBooks = () =>{
+  
+}
+
+
+
+
     return (
       <main>
          {/* <!--Content--> */}

@@ -1,4 +1,6 @@
-function Header() {
+// Update the component params to recieve deconstructured props
+function Header({user, setUser}) {
+
     return (
     
     <header className="navbar-header">

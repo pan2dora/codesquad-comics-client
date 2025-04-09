@@ -2,7 +2,7 @@ import booksData from "../data/books";
 
 function Admin() {
     return (
-      <main>
+      <>
         <thead>
             {/* <!--Data--> */}
             <tr>
@@ -27,7 +27,7 @@ function Admin() {
     ) }
     </tbody>
      
-      </main>
+      </>
     )
   }
 

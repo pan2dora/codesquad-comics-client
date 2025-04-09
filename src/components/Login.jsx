@@ -1,4 +1,7 @@
-function Login() {
+// Update the component params to recieve deconstructured props
+function Login({user, setUser}) {
+  console.log("In login",user)
+
     return (
      <main>
       <div className="home-collection-container">
