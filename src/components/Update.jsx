@@ -1,16 +1,53 @@
+import booksData from "../data/books";
+import { useState, useEffect } from "react";
+
+console.log(booksData);
+// create var named id and give it value
+
 function Update() {
-    return (
-   <main>
- <div className="update-form">
-        <form >
+  const bookID = booksData[2]._id;
+  console.log("id>>", bookID);
+  const [books, setBooks] = useState({});
+
+  useEffect(() => {
+    // new var to hold data
+    const foundBook = booksData.find((book) => book._id === `${bookID}`);
+    console.log("New Array data:", foundBook);
+    setBooks(foundBook);
+  }, []);
+
+  console.log("books post useaffect:", books);
+
+  // Build an handler func to update form submission
+
+  const handleUpdate = (e) => {
+    // prevent default behavior
+    e.preventDefault();
+    console.log("Update submitted");
+
+    console.log("Title:", e.target.title.value);
+    console.log("Author:", e.target.author.value);
+    console.log("Genre:", e.target.genre.value);
+    console.log("Pages:", e.target.pages.value);
+    console.log("Rating:", e.target.rating.value);
+    // console.log("Synopsis:", e.target.synopsis.value);
+  };
+
+  // Updating form data
+
+  return (
+    <main>
+      <div>
+        <h1 className="home-blerb-title">Update</h1>
+        <form onSubmit={handleUpdate} className="update-form">
           {/* <!--Title Text--> */}
           <div>
-            <label htmlFor="title">Update:</label>
+            <label htmlFor="title">Title:</label>
             <input
               type="text"
               className="title"
               name="title"
-              value="title value stored in the database"
+              defaultValue={books.title}
             />
           </div>
 
@@ -22,7 +59,7 @@ function Update() {
               type="text"
               className="author"
               name="author"
-              value="author value stored in the database"
+              defaultValue={books.author}
             />
           </div>
           <br />
@@ -43,7 +80,7 @@ function Update() {
               <option value="viz-media">Viz Media LLC</option>
               {/* <!--Selected attribute--> */}
               <option value="database" selected>
-                Publisher data stored in the database
+                {books.publisher}
               </option>
             </select>
           </div>
@@ -55,7 +92,7 @@ function Update() {
               type="text"
               className="genre"
               name="genre"
-              value="genre data stored in the database"
+              defaultValue={books.genre}
             />
           </div>
           <br />
@@ -67,7 +104,7 @@ function Update() {
               className="pages"
               name="pages"
               htmlFor="pages"
-              value="255"
+              defaultValue={books.pages}
             />
           </div>
           <br />
@@ -79,28 +116,27 @@ function Update() {
               className="rating"
               name="rating"
               htmlFor="rating"
-              value="5"
+              defaultValue={books.rating}
             />
           </div>
           <br />
           {/* <!--Synopsis Text area--> */}
           <div>
             <label htmlFor="form-text">Synopsis:</label>
-            <textarea className="form-text" name="form-text" htmlFor="form-text">
-Synopsis stored in database </textarea
-            >
+            <textarea
+              className="form-text"
+              name="form-text"
+              htmlFor="form-text"
+              defaultValue={books.synopsis}
+            />
           </div>
           <div>
             <input type="submit" value="Submit" name="button" className="btn" />
           </div>
         </form>
       </div>
-   
+    </main>
+  );
+}
 
-
-
-   </main>
-    )
-  }
-
-  export default Update;
+export default Update;

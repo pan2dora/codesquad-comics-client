@@ -1,39 +1,33 @@
 import { useState, useEffect } from "react";
 import booksData from "../data/books";
 
-
 function Home() {
-// Use state to hold data for books 
-// Create setter func and init it into empty array
-const [books, setBooks] = useState([])
+  // Use state to hold data for books
+  // Create setter func and init it into empty array
+  const [books, setBooks] = useState([]);
 
-// Create handler func
+  // Create handler func
 
-// const handleBooks = ()=>{
-//   setBooks((prevBooks)=>prevBooks)
-// }
+  // const handleBooks = ()=>{
+  //   setBooks((prevBooks)=>prevBooks)
+  // }
 
+  // Create useEffect func and use the callback to setBooks to booksData
+  // syntax: useEffects (setup, dependencies)
 
-// Create useEffect func and use the callback to setBooks to booksData
-// syntax: useEffects (setup, dependencies)
+  useEffect(() => {
+    setBooks(booksData);
+    console.log("Use effect works");
+  }, []);
 
-useEffect(()=> {
-  setBooks(booksData)
-console.log("Use effect works")
-
-},[])
-
-
-
-
-    return (
-      <main>
-        {/* Updated content */}
- {/* Change the array in the mapped func to reflect the array in the state now */}
- {books.map((book) => 
-        <section key={book.id} >
+  return (
+    <main>
+      {/* Updated content */}
+      {/* Change the array in the mapped func to reflect the array in the state now */}
+      {books.map((book) => (
+        <section key={book.id}>
           <a href="#">
-            <img src={book.imageUrl}/>
+            <img src={book.imageUrl} />
           </a>
           <div>{book.title}</div>
           <div>{book.author}</div>
@@ -41,15 +35,15 @@ console.log("Use effect works")
           <div>{book.pages}</div>
           <div>{book.rating}</div>
           <div>{book.synopsis}</div>
-          <a href="#" className="home-detail-link"><div>Details</div></a>
+          <a href="#" className="home-detail-link">
+            <div>Details</div>
+          </a>
         </section>
-        ) } 
- 
+      ))}
 
+      {/* <!-- Old Content--> */}
 
-         {/* <!-- Old Content--> */}
-        
-         {/* {booksData.map((book) => 
+      {/* {booksData.map((book) => 
         <section>
           <a href="#">
             <img src={book.imageUrl}/>
@@ -63,10 +57,7 @@ console.log("Use effect works")
           <a href="#" class="home-detail-link"><div>Details</div></a>
         </section>
         ) } */}
- 
-
-      </main>
-    
-)
+    </main>
+  );
 }
-  export default Home;
+export default Home;
