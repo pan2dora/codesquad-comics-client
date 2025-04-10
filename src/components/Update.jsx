@@ -14,7 +14,7 @@ function Update() {
     const foundBook = booksData.find((book) => book._id === `${bookID}`);
     console.log("New Array data:", foundBook);
     setBooks(foundBook);
-  }, []);
+  }, [bookID]);
 
   console.log("books post useaffect:", books);
 
