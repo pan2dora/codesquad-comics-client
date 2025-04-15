@@ -14,7 +14,8 @@ import Header from "./shared/Header.jsx";
 
 function App() {
   // Import useState and create a new state for a user. Remember the setter function.
-  const [user, setUser] = useState("Test");
+  const [user, setUser] = useState(localStorage.getItem("user") || {});
+
 // Change to empty object
   console.log("In App", user)
   

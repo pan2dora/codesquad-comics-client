@@ -6,10 +6,12 @@ function Create() {
     e.preventDefault(console.log("Submitted"));
     // Print message to console that this ran
     // Note: Not sure if this is the correct way but was the first way I thought to excute this
-    console.log("Title submitted:", document.getElementById("title").value);
-    console.log("Author submitted:", document.getElementById("author").value);
-    console.log("Genre submitted:", document.getElementById("genre").value);
-    console.log("Pages submitted:", document.getElementById("pages").value);
+    console.log("Title submitted:", e.target.title.value);
+    console.log("Author submitted:",  e.target.author.value);
+    console.log("Publusher submitted:", e.target.publisher.value)
+    console.log("Genre submitted:",  e.target.genre.value);
+    console.log("Pages submitted:",  e.target.pages.value);
+    console.log("Synopsis submitted:",  e.target.synopsis.value);
   };
 
   return (
@@ -102,7 +104,8 @@ function Create() {
             <div>
               <label htmlFor="form-text">Synopsis:</label>
               <textarea
-                id="form-text"
+              
+                id="synopsis"
                 cols="20"
                 placeholder="Synopsis"
               ></textarea>

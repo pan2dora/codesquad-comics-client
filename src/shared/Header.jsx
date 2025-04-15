@@ -1,5 +1,5 @@
 // Update the component params to recieve deconstructured props
-function Header({user, setUser}) {
+function Header() {
 
     return (
     

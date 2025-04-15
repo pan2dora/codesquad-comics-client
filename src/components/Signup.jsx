@@ -1,12 +1,13 @@
 // Update the component params to recieve deconstructured props
-function Signup({ user, setUser }) {
+function Signup() {
   const handleSignup = (e) => {
     e.preventDefault(console.log("Submitted"));
-
-    console.log("Signup Name:", document.getElementById("name").value);
-    console.log("Signup Last Name:", document.getElementById("lastname").value);
-    console.log("Signup email:", document.getElementById("email").value);
-    console.log("Signup Password:", document.getElementById("password").value);
+  
+  
+    console.log("Login firstname submitted:",  e.target.firstname.value);
+    console.log("Login lastname submitted:",  e.target.lastname.value);
+    console.log("Signup email submitted:",  e.target.email.value);
+console.log("Signup password submitted:",  e.target.password.value);
   };
 
   return (
@@ -20,8 +21,7 @@ function Signup({ user, setUser }) {
             <input
               type="firstname"
               placeholder="first Name"
-              name="name"
-              id="name"
+              id="firstname"
               className="firstName"
               required
             />
@@ -32,7 +32,6 @@ function Signup({ user, setUser }) {
             <input
               type="lastname"
               placeholder="last Name"
-              name="lastname"
               id="lastname"
               className="lasttName"
               required
@@ -57,7 +56,6 @@ function Signup({ user, setUser }) {
             <input
               type="password"
               placeholder="Password"
-              name="password"
               id="password"
               className="password"
               required
