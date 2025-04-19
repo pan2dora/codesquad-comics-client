@@ -5,19 +5,26 @@ function Home() {
   // Use state to hold data for books
   // Create setter func and init it into empty array
   const [books, setBooks] = useState([]);
+  
 
-  // Create handler func
-
-  // const handleBooks = ()=>{
-  //   setBooks((prevBooks)=>prevBooks)
-  // }
-
-  // Create useEffect func and use the callback to setBooks to booksData
-  // syntax: useEffects (setup, dependencies)
+  const url =
+    "https://course-project-codesquad-comics-server.onrender.com/api/books";
 
   useEffect(() => {
-    setBooks(booksData);
-    console.log("Use effect works");
+    fetch(url, { method: "GET" })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result.data.books);
+        setBooks(result.data.books);
+      })
+      .catch(
+        console.log("error")
+       
+      );
+
+    // setBooks(booksData);
+
+    // console.log("Use effect works");
   }, []);
 
   return (
@@ -25,9 +32,9 @@ function Home() {
       {/* Updated content */}
       {/* Change the array in the mapped func to reflect the array in the state now */}
       {books.map((book) => (
-        <section key={book.id}>
+        <section key={book._id}>
           <a href="#">
-            <img src={book.imageUrl} />
+            <img src={`/images/${book.image}`} alt={book.title} />
           </a>
           <div>{book.title}</div>
           <div>{book.author}</div>

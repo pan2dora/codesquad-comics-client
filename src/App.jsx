@@ -11,14 +11,14 @@ import Signup from "./components/Signup.jsx";
 import Update from "./components/Update.jsx";
 import Footer from "./shared/Footer.jsx";
 import Header from "./shared/Header.jsx";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   // Import useState and create a new state for a user. Remember the setter function.
   const [user, setUser] = useState(localStorage.getItem("user") || {});
 
-// Change to empty object
-  console.log("In App", user)
-  
+  // Change to empty object
+  console.log("In App", user);
 
   // const updateUser = (e) => {
   //   setUser(e.target.value);
@@ -29,14 +29,16 @@ function App() {
   console.log("User", user);
   return (
     <>
-      <Header user={user} setUser={setUser} />
-      <About />
-      <Admin />
-      <Create />
-      <Home />
-      <Login user={user} setUser={setUser} />
-      <Signup user={user} setUser={setUser} />
-      <Update />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/create" element={<Create />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/update" element={<Update />} />
+      </Routes>
       <Footer />
     </>
   );
