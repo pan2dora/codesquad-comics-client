@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Create() {
   // Build an arrow func to handle the create form submissions.
+const navigate = useNavigate()
 
   const [error, setErrorMessage] = useState("");
 
@@ -23,6 +25,7 @@ function Create() {
       .then((response) => response.json())
       .then((result) => {
         console.log("Success:",result.success.message)
+        navigate("/admin")
         console.log("In Create.jsx:", result.error.message);
         setErrorMessage(result.error.message);
       })

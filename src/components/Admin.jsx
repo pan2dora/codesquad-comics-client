@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
+
 import booksData from "../data/books";
 import { useEffect, useState } from "react";
 
 function Admin() {
   const [books, setBooks] = useState([]);
    
-  let navigate = useNavigate
+
 
   const url =
     "https://course-project-codesquad-comics-server.onrender.com/api/books";
@@ -17,7 +17,7 @@ function Admin() {
 
       .then((result) => {
         console.log("Success:",result.success.message)
-        navigate("/admin")
+    
         setBooks(result.data.books);
       
       })
