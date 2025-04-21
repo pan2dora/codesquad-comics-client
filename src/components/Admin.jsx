@@ -1,18 +1,25 @@
+import { useNavigate } from "react-router-dom";
 import booksData from "../data/books";
 import { useEffect, useState } from "react";
 
 function Admin() {
   const [books, setBooks] = useState([]);
+   
+  let navigate = useNavigate
 
   const url =
     "https://course-project-codesquad-comics-server.onrender.com/api/books";
 
   useEffect(() => {
     fetch(url, { method: "GET" })
-      .then((response) => response.json())
+      .then((response) => response.json() 
+    )
+
       .then((result) => {
-        console.log(result.data.books);
+        console.log("Success:",result.success.message)
+        navigate("/admin")
         setBooks(result.data.books);
+      
       })
       .catch(console.log("error"));
 
@@ -25,8 +32,10 @@ function Admin() {
 
     fetch(`${url}/delete/${bookId}`, { method: "DELETE" })
       .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log(error));
+      .then((result) => console.log("Sucess message:", result))
+      .catch((error) => console.log(error.message));
+
+      
   };
 
   return (
@@ -44,12 +53,12 @@ function Admin() {
           <tr key={book._id}>
             <td scope="row">{book.title}</td>
             <td>
-              <a href="#">
-                <button className="edit-btn">EDIT</button>
+              <a href="/components/Update.jsx">
+               <button className="edit-btn">EDIT</button>
               </a>
             </td>
             <td>
-              <button class="delete-btn">DELETE</button>
+              <button onClick={()=>handleDeleteBook(book._id)} class="delete-btn">DELETE</button>
             </td>
           </tr>
         ))}

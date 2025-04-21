@@ -1,17 +1,45 @@
+import { useState } from "react";
+
 function Create() {
   // Build an arrow func to handle the create form submissions.
+
+  const [error, setErrorMessage] = useState("");
+
   const handleSubmit = (e) => {
     // Method to prevent default behavior of form submission
-
     e.preventDefault(console.log("Submitted"));
+    const body = {
+      title: e.target.title.value,
+      author: e.target.author.value,
+      publisher: e.target.publisher.value,
+      genre: e.target.genre.value,
+      pages: e.target.pages.value,
+      synopsis: e.target.synopsis.value,
+    };
+
+    const url =
+      "https://course-project-codesquad-comics-server.onrender.com/api/books/create";
+    fetch(url, { method: "POST", body: JSON.stringify(body) })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("Success:",result.success.message)
+        console.log("In Create.jsx:", result.error.message);
+        setErrorMessage(result.error.message);
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+        setErrorMessage(error.message);
+      });
+
+    console.log("Error message:", setErrorMessage);
     // Print message to console that this ran
     // Note: Not sure if this is the correct way but was the first way I thought to excute this
-    console.log("Title submitted:", e.target.title.value);
-    console.log("Author submitted:",  e.target.author.value);
-    console.log("Publusher submitted:", e.target.publisher.value)
-    console.log("Genre submitted:",  e.target.genre.value);
-    console.log("Pages submitted:",  e.target.pages.value);
-    console.log("Synopsis submitted:",  e.target.synopsis.value);
+    // console.log("Title submitted:", e.target.title.value);
+    // console.log("Author submitted:", e.target.author.value);
+    // console.log("Publusher submitted:", e.target.publisher.value);
+    // console.log("Genre submitted:", e.target.genre.value);
+    // console.log("Pages submitted:", e.target.pages.value);
+    // console.log("Synopsis submitted:", e.target.synopsis.value);
   };
 
   return (
@@ -104,7 +132,6 @@ function Create() {
             <div>
               <label htmlFor="form-text">Synopsis:</label>
               <textarea
-              
                 id="synopsis"
                 cols="20"
                 placeholder="Synopsis"
