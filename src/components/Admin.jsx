@@ -4,10 +4,30 @@ import { useEffect, useState } from "react";
 function Admin() {
   const [books, setBooks] = useState([]);
 
+  const url =
+    "https://course-project-codesquad-comics-server.onrender.com/api/books";
+
   useEffect(() => {
-    setBooks(booksData);
-    console.log("Use effect works");
+    fetch(url, { method: "GET" })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result.data.books);
+        setBooks(result.data.books);
+      })
+      .catch(console.log("error"));
+
+    // console.log("Use effect works");
   }, []);
+  console.log(books);
+
+  const handleDeleteBook = (e) => {
+    e.preventDefault();
+
+    fetch(`${url}/delete/${bookId}`, { method: "DELETE" })
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.log(error));
+  };
 
   return (
     <>
@@ -21,7 +41,7 @@ function Admin() {
       </thead>
       <tbody>
         {books.map((book) => (
-          <tr key={book.id}>
+          <tr key={book._id}>
             <td scope="row">{book.title}</td>
             <td>
               <a href="#">
