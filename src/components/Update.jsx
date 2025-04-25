@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import booksData from "../data/books";
 import { useState, useEffect } from "react";
 
@@ -6,26 +6,28 @@ console.log(booksData);
 // create var named id and give it value
 
 function Update() {
+  const navigate = useNavigate()
   const { bookId } = useParams();
-  const bookID = booksData[2]._id;
-  console.log("id>>", bookID);
- 
-
   const [books, setBooks] = useState({});
 
+  const url = `https://course-project-codesquad-comics-server.onrender.com/api/books`;
+ 
+  console.log("id>>", bookId);
+
   useEffect(() => {
-    const url = `https://course-project-codesquad-comics-server.onrender.com/api/books/${bookId}`;
-    fetch(url, { method: "GET" })
-      .then((response) => response.json)
+    fetch(`${url}/${bookId}`, { method: "GET" })
+      .then((response) => response.json())
       .then((result) => {
-        console.log("Update Sucess:", result);
-      });
+        console.log("Update Sucess:", result.success.message);
+        setBooks(result);
+      })
+      .catch((error) => console.log("Error:", error.message));
 
     // new var to hold data
-    const foundBook = booksData.find((book) => book._id === `${bookID}`);
-    console.log("New Array data:", foundBook);
-    setBooks(foundBook);
-  }, [bookID, url]);
+    // const foundBook = booksData.find((book) => book._id === `${bookId}`);
+    // console.log("New Array data:", foundBook);
+    // setBooks(foundBook);
+  }, [bookId, url]);
 
   console.log("books post useaffect:", books);
 
@@ -34,6 +36,27 @@ function Update() {
   const handleUpdate = (e) => {
     // prevent default behavior
     e.preventDefault();
+    const body = {
+      title: e.target.title.value,
+      author: e.target.author.value,
+      genre: e.target.genre.value,
+      pages: e.target.pages.value,
+      rating: e.target.rating.value,
+      synopsis: e.target.synopsis.value,
+    };
+
+    fetch(`${url}/edit/${bookId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }).then((response) => response.json)
+    .then((result) => {
+      console.log("Update Sucess:", result.success.message);
+      setBooks(result)
+    navigate("/admin")
+    })
+    .catch((error) => console.log("Error:", error.message));
+console.log(body)
     console.log("Update submitted");
 
     console.log("Title:", e.target.title.value);
@@ -135,9 +158,9 @@ function Update() {
           <div>
             <label htmlFor="form-text">Synopsis:</label>
             <textarea
-              className="form-text"
-              name="form-text"
-              htmlFor="form-text"
+              className="synopsis"
+              name="synopsis"
+              htmlFor="synopsis"
               defaultValue={books.synopsis}
             />
           </div>
