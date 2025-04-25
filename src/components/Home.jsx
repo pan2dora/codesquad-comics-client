@@ -14,11 +14,11 @@ function Home() {
     fetch(url, { method: "GET" })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result.data.books);
+        console.log("Success:",result.success.message);
         setBooks(result.data.books);
       })
       .catch(
-        console.log("error")
+        console.log("error:")
        
       );
 

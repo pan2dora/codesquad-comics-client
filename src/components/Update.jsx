@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import booksData from "../data/books";
 import { useState, useEffect } from "react";
 
@@ -5,16 +6,26 @@ console.log(booksData);
 // create var named id and give it value
 
 function Update() {
+  const { bookId } = useParams();
   const bookID = booksData[2]._id;
   console.log("id>>", bookID);
+ 
+
   const [books, setBooks] = useState({});
 
   useEffect(() => {
+    const url = `https://course-project-codesquad-comics-server.onrender.com/api/books/${bookId}`;
+    fetch(url, { method: "GET" })
+      .then((response) => response.json)
+      .then((result) => {
+        console.log("Update Sucess:", result);
+      });
+
     // new var to hold data
     const foundBook = booksData.find((book) => book._id === `${bookID}`);
     console.log("New Array data:", foundBook);
     setBooks(foundBook);
-  }, [bookID]);
+  }, [bookID, url]);
 
   console.log("books post useaffect:", books);
 
