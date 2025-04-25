@@ -6,12 +6,12 @@ console.log(booksData);
 // create var named id and give it value
 
 function Update() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { bookId } = useParams();
   const [books, setBooks] = useState({});
 
   const url = `https://course-project-codesquad-comics-server.onrender.com/api/books`;
- 
+
   console.log("id>>", bookId);
 
   useEffect(() => {
@@ -49,14 +49,15 @@ function Update() {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
-    }).then((response) => response.json)
-    .then((result) => {
-      console.log("Update Sucess:", result.success.message);
-      setBooks(result)
-    navigate("/admin")
     })
-    .catch((error) => console.log("Error:", error.message));
-console.log(body)
+      .then((response) => response.json)
+      .then((result) => {
+        console.log("Update Sucess:", result.success.message);
+        setBooks(result);
+        navigate("/admin");
+      })
+      .catch((error) => console.log("Error:", error.message));
+    console.log(body);
     console.log("Update submitted");
 
     console.log("Title:", e.target.title.value);
