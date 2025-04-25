@@ -1,11 +1,11 @@
-import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 
 function Create() {
   // Build an arrow func to handle the create form submissions.
 const navigate = useNavigate()
 
-  const [error, setErrorMessage] = useState("");
+  // const [error, setErrorMessage] = useState("");
 
   const handleSubmit = (e) => {
     // Method to prevent default behavior of form submission
@@ -26,15 +26,14 @@ const navigate = useNavigate()
       .then((result) => {
         console.log("Success:",result.success.message)
         navigate("/admin")
-        console.log("In Create.jsx:", result.error.message);
-        setErrorMessage(result.error.message);
+        // console.log("In Create.jsx:", result.error.message);
+        // setErrorMessage(result.error.message);
       })
       .catch((error) => {
-        console.log("Error:", error);
-        setErrorMessage(error.message);
+        console.log("Error:",error.message)
       });
-
-    console.log("Error message:", setErrorMessage);
+console.log(body)
+ 
     // Print message to console that this ran
     // Note: Not sure if this is the correct way but was the first way I thought to excute this
     // console.log("Title submitted:", e.target.title.value);
@@ -142,7 +141,7 @@ const navigate = useNavigate()
             </div>
           </div>
 
-          <input type="submit" value="Submit" name="button" className="btn" />
+          <input  type="submit" value="Submit" name="button" className="btn" />
         </form>
       </div>
     </main>

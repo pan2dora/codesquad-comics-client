@@ -6,25 +6,30 @@ function Login() {
 
   // Build login func to handle submission
   const handleLogin = (e) => {
+    e.preventDefault(console.log("Login Submitted"));
+
     let url =
       "https://course-project-codesquad-comics-server.onrender.com/login/local";
     // prevent default behavior
     const body = {
-      username: e.target.username.value,
+      email: e.target.email.value,
       password: e.target.password.value,
     };
-    fetch(url, { method: "POST", body: JSON.stringify(body) })
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    })
       .then((response) => response.json())
       .then((result) => {
-        console.log("Success message:", result);
-        navigate("/admin")
+        console.log("Success:", result.success.message);
+        navigate("/admin");
         localStorage.setItem("user", JSON.stringify(result));
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => console.log("Error:", error.message));
 
-    // print out each submission
     console.log("Login email submitted:", e.target.email.value);
-    console.log("Login password submitted:", e.target.password.value);
+    console.log("Login email submitted:", e.target.password.value);
   };
 
   return (
@@ -51,7 +56,6 @@ function Login() {
             <input
               type="password"
               placeholder="Password"
-              name="password"
               id="password"
               className="password"
               required

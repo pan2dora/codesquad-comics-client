@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 // Update the component params to recieve deconstructured props
 function Signup() {
   const navigate = useNavigate();
-  
+
   const handleSignup = (e) => {
-    e.preventDefault(console.log("Submitted"));
+    e.preventDefault(console.log("Signup Submitted"));
 
     let url =
       "https://course-project-codesquad-comics-server.onrender.com/signup/local";
@@ -16,14 +16,18 @@ function Signup() {
       email: e.target.email.value,
       password: e.target.password.value,
     };
-    fetch(url, { method: "POST", body: JSON.stringify(body) })
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    })
       .then((response) => response.json())
       .then((result) => {
-        console.log("Success message:", result);
+        console.log("Success:", result.success.message);
         navigate("/admin");
         localStorage.setItem("user", JSON.stringify(result));
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => console.log("Error:", error.message));
 
     console.log("Login firstname submitted:", e.target.firstname.value);
     console.log("Login lastname submitted:", e.target.lastname.value);
