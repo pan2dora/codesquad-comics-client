@@ -1,46 +1,607 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+
+
+/* NAVBAR & FOOTER: NAVBAR HEADER, NAVBAR-LOGO NAVEBAR LIST */
+.navbar-header {
+  background-color: var(--blue);
+  padding-bottom: 2px;
+}
+
+.navbar-container {
+ 
+  width: 100%;
+
+}
+
+.navbar-logo {
+  width: 300px;
+  padding: 30px;
+}
+
+/* Navbar List */
+.navbar-list li {
+  /* display: flex;
+  justify-content: space-around;
+  margin-right: 50%;
+  flex-wrap: wrap; */
+  list-style: none;
+  font-family: "Fredericka the Great", serif;
+}
+
+/* Navbar & Footer Links */
+.navbar-list a:link,
+.footer-links a:link {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.navbar-list a:visited,
+.footer-links a:visited {
+  color: var(--white);
+}
+
+.navbar-list a:hover,
+.footer-links a:hover {
+  color: var(--yellow);
+}
+
+.navbar-list a:active,
+.footer-links a:active {
+  color: var(--blue);
+  background-color: var(--yellow);
+}
+
+/* Old code that stopped working  */
+/* .navbar-list a:link,
+.footer-links a:link {
+  color: var(--white);
+text-decoration: none;
+
+
+} */
+
+/* .navbar-list a:hover,
+.footer-links a:hover {
+} */
+
+/* .navbar-list a:visited,
+.footer-links a:visited {
+  color: var(--yellow);
+} */
+
+/* Footer */
+
+.footer-container {
+  /* display: flex;
+  */
+  display: flex;
+  background-color: var(--blue);
+  color: var(--white);
+  border-top: solid 6px var(--yellow);
+  padding: 20px;
+  padding-left: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-container div {
+  flex-grow: 1;
+}
+
+.footer-container h2 {
+  color: var(--yellow);
+
+  font-size: x-large;
+}
+.footer-container span,
+.footer-container a {
+  font-family: "Fredericka the Great", serif;
+}
+
+.footer-logo {
+  width: 150px;
+}
+
+/* HTML PAGES: INDEX/HOME, LOGIN, UPDATE,ABOUT,  ADMIN, COMIC CARD  */
+
+/* HOME/INDEX.HTML */
+
+
+.home-blerb-container,
+.about-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  font-family: "Open Sans", serif;
+}
+
+
+
+.home-container img {
+  width: 200px;
+}
+
+.home-blerb-container,
+.home-collection-container{
+box-sizing: border-box;
+  background-color: var(--white);
+  border: solid var(--blue) 6px;
+  padding: 40px;
+  margin: 100px;
+  font-size: medium;
+  
+
+  /* font-size: x-large; */
+  /* align-items: center;
+*/
+}
+
+
+
+.home-collection-container a:link {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.home-collection-container a:visited {
+  color: var(--blue);
+}
+
+.home-collection-container a:hover {
+  color: var(--teal);
+  font-weight: bolder;
+}
+
+.home-collection-container a:active {
+  background-color: var(--yellow);
+  color: var(--blue);
+
+  font-weight: bold;
+}
+
+.home-blerb-title {
+  color: var(--blue);
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Buttons For All */
+.btn {
+  background-color: var(--yellow);
+  font-size: small;
+  width: fit-content;
 }
 
-img{
+/* .home-blerb-container {
+  background-color: var(--white);
+  border: solid var(--blue);
+  text-align: center;
+  height: 250px;
+  width: 600px;
+  padding-left: 20px;
+  padding-right: 20px;
+  
+} */
+
+/* .home-blerb-title{
+  text
+} */
+
+/* LOGIN.HTML */
+
+.login-form,
+.update-form,
+.create-form {
+  box-sizing: border-box;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: right;
+}
+
+.login-form div,
+.update-form div,
+.create-form div {
+  margin-right: 20%;
+}
+
+.password,
+.email {
+  border-color: 5px solid black;
+}
+
+.login-form input[type="submit"],
+.update-form input[type="submit"],
+.create-form input[type="submit"] {
+  margin: 10% 30%;
+}
+
+/* UPDATE.HTML --------------------------------------------------------------------------------------------------- */
+/* .update-form-container {
+  text-align: center;
+}
+
+.update-form-text {
+  display: block;
+} */
+
+/* .update-form-containe input[type="submit"]{
+    margin: 40px ;
+    margin-left: 50%;
+    
+  
+  
+} */
+
+/* CREATE HTML ----------------------------------------------------------------------------------------------------*/
+
+/* 
+.create-form label {
+  text-align: right;
+}
+
+.create-form input[type="submit"] {
+  margin: 10% 30%;
+} */
+
+/* ABOUT.HTML */
+
+/* ADMIN.HTML */
+
+/* TABLE STYLING */
+
+.comic {
+  border: 2px solid var(--blue);
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+
+.comic th {
+  border: 2px solid var(--blue);
+  padding: 10px 8px;
+  background-color: var(--grey);
+}
+
+.comic td {
+  border: 2px solid var(--blue);
+  padding: 5px 5px;
+}
+
+.comic tr:nth-child(even) {
+  background-color: var(--grey);
+}
+
+.comic tr:hover {
+  background-color: var(--light-teal);
+}
+
+/* Admin Buttons */
+/* Edit Button */
+.edit-btn {
+  background-color: var(--blue);
+  color: var(--white);
+  border: solid black;
+  margin: auto;
+  display: block;
+}
+
+.delete-btn {
+  background-color: var(--yellow);
+  border: solid black;
+  margin: auto;
+  display: block;
+}
+
+/* Create */
+
+/* Cards */
+.comic-card-container {
+  text-align: center;
+  padding-top: 15%;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}
+/* Top Card Border */
+.comic-card-container-top {
+  border: solid 5px var(--yellow);
+  background-color: var(--blue);
+  color: var(--yellow);
+  border-radius: 6% 6% 0% 0%;
+  padding-bottom: 25px;
+}
+
+/* Bottom Card Border */
+.comic-card-container-bottom {
+  border: solid 5px var(--yellow);
+  text-align: left;
+  padding: 5%;
+  margin-bottom: 10%;
+  border-top: 25px;
+  background-color: var(--white);
+  border-radius: 0% 0% 6% 6%;
+}
+
+.comic-card-container-span span {
+  text-decoration: underline;
+  color: var(--blue);
+  font-weight: bolder;
+}
+
+/* Card Image */
+.comic-card-image {
+  border: solid var(--white) 5px;
   width: 250px;
+  border-radius: 10%;
+  padding-bottom: 25px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.fa-bars {
+  color: var(--white);
+  size: 30%;
+}
+
+/* MEDIA QUERIES*/
+/* MOBILE */
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  /* Nav bar */
+  .navbar-logo {
+    width: 250px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .fa-bars {
+    size: 250px;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .navbar-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1;
+    width: 100%;
   }
+
+  .navbar-list {
+    display: none;
+  }
+
+
+  /* Footer */
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+  }
+
+  .footer-icons {
+    display: flex;
+    gap: 3%;
+
+    /* align-items: center; */
+  }
+
+  .fa-brands {
+    font-size: 30px;
+  }
+
+  /* Home */
+
+  .home-collection-container {
+    font-size: small;
+    margin: 20px;
+  }
+
+
+
+  /* Admin */
+
+  .admin-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow: auto;
+    box-sizing: border-box;
+  }
+
+
+
+  /* Comic Card */
+  .comic-card-container {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    border: #006b6b dotted 10px;
+    flex-wrap: wrap;
+    font-size: smaller;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  /* Top card */
+
+  .comic-card-container-top {
+    border-radius: 10% 10% 0% 0%;
+  }
+
+  .comic-card-container img {
+    width: 250px;
+    flex: 1;
+  }
+
+  /* 
+  
+.comic-card-container {
+  text-align: center;
+  padding-top: 20%;
+  width: 100%;
+ padding-left: 5%;
+ padding-right: 5%;
+}
+ Top Card Border 
+.comic-card-container-top {
+  border: solid 5px var(--yellow);
+  background-color: var(--blue);
+  color: var(--yellow);
+  border-radius: 10% 10% 0% 0%;
+  padding-bottom: 25px;
 }
 
-.card {
-  padding: 2em;
+Bottom Card Border 
+.comic-card-container-bottom {
+  border: solid 5px var(--yellow);
+  text-align: left;
+  padding: 5%;
+  margin-bottom: 20%;
+  border-top: 25px;
+  background-color: var(--white);
+  border-radius: 0% 0% 10% 10%;
 }
 
-.read-the-docs {
-  color: #888;
+
+Card Image 
+.comic-card-image {
+  width: 200px;
+  border: var(--white) solid;
+  border-radius: 6% 6%;
+  
+}
+
+
+
+
+
+
+
+
+*/
+}
+
+/* TABLET */
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .navbar-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 60%;
+    flex-grow: 1;
+  }
+
+  .navbar-list {
+    display: none;
+  }
+
+  .navbar-logo {
+    width: 250px;
+  }
+
+  /* Footer */
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+  }
+
+  .footer-icons {
+    display: flex;
+    gap: 3%;
+
+    /* align-items: center; */
+  }
+
+  .fa-brands {
+    font-size: 30px;
+  }
+
+
+ /* Admin */
+
+ .admin-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+
+  
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+  .fa-bars {
+    display: none;
+    visibility: hidden;
+  }
+
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-list {
+    display: flex;
+    justify-content: right;
+    margin-right: 10%;
+
+    gap: 30%;
+    font-size: larger;
+  }
+
+  .footer-container {
+    font-size: medium;
+  }
+
+  .footer-icons {
+    display: flex;
+    gap: 3%;
+
+    /* align-items: center; */
+  }
+
+  .fa-brands {
+    font-size: 30px;
+  }
+
+  /* Comic cards */
+  .comic-card-container {
+    display: flex;
+    box-sizing: border-box;
+    width: 75%;
+    border: dotted white;
+    font-size: large;
+    padding-bottom: 0%;
+    padding-top: 5%;
+  }
+
+  .comic-card-container-top {
+  
+    border: none;
+    border-radius: 0%;
+    margin-bottom: 10%;
+    border-radius: 8% 0% 0% 8%;
+    padding: 30px;
+   
+    border: solid var(--yellow) 5px;
+    border-right: none;
+   
+  }
+
+  .comic-card-container-bottom {
+    border: none;
+    border-radius: 0% 8% 8% 0%;
+    border: solid var(--yellow) 5px;
+    border-left: none;
+  }
+  .comic-card-container span {
+    text-decoration: underline;
+    color: var(--blue);
+    font-weight: bolder;
+  }
+  
+
+
 }

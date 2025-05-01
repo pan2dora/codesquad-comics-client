@@ -1,3 +1,4 @@
+import "./app.css";
 import { useState } from "react";
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
@@ -35,9 +36,19 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/create" element={<Create />} />
-        <Route path="/login" element={<Login />}  user={user} setUser={setUser}/>
+        <Route
+          path="/login"
+          element={<Login />}
+          user={user}
+          setUser={setUser}
+        />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/update" element={<Update />} user={user} setUser={setUser} />
+        <Route
+          path="/update"
+          element={<Update />}
+          user={user}
+          setUser={setUser}
+        />
       </Routes>
       <Footer />
     </>
