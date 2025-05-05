@@ -41,7 +41,9 @@ function Admin() {
 
   return (
     <>
-      <thead>
+    <div className="home-collection-container">
+      
+      <thead >
         {/* <!--Data--> */}
         <tr>
           <th scope="col">COMIC TITLE</th>
@@ -49,7 +51,7 @@ function Admin() {
           <th scope="col">DELETE</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="comic" >
         {books.map((book) => (
           <tr key={book._id}>
             <td scope="row">{book.title}</td>
@@ -64,6 +66,7 @@ function Admin() {
           </tr>
         ))}
       </tbody>
+      </div>
     </>
   );
 }

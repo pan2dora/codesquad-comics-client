@@ -5,7 +5,6 @@ function Home() {
   // Use state to hold data for books
   // Create setter func and init it into empty array
   const [books, setBooks] = useState([]);
-  
 
   const url =
     "https://course-project-codesquad-comics-server.onrender.com/api/books";
@@ -14,13 +13,10 @@ function Home() {
     fetch(url, { method: "GET" })
       .then((response) => response.json())
       .then((result) => {
-        console.log("Success:",result.success.message);
+        console.log("Success:", result.success.message);
         setBooks(result.data.books);
       })
-      .catch(
-        console.log("error:")
-       
-      );
+      .catch(console.log("error:"));
 
     // setBooks(booksData);
 
@@ -28,42 +24,29 @@ function Home() {
   }, []);
 
   return (
-    <main>
+    <main className="home-container">
       {/* Updated content */}
       {/* Change the array in the mapped func to reflect the array in the state now */}
+
       {books.map((book) => (
-        <section key={book._id}>
-          <a href="#">
-            <img src={`/images/${book.image}`} alt={book.title} />
-          </a>
-          <div>{book.title}</div>
-          <div>{book.author}</div>
-          <div>{book.publisher}</div>
-          <div>{book.pages}</div>
-          <div>{book.rating}</div>
-          <div>{book.synopsis}</div>
-          <a href="#" className="home-detail-link">
-            <div>Details</div>
-          </a>
+        <section className="home-collection-container" key={book._id}>
+          <div>
+            <a href="#">
+              <img src={`/images/${book.imageUrl}`} alt={book.title} />
+            </a>
+
+            <div className="home-blerb-title">{book.title}</div>
+            <div>{book.author}</div>
+            <div>{book.publisher}</div>
+            <div>{book.pages}</div>
+            <div>{book.rating}</div>
+            <div>{book.synopsis}</div>
+            <a href="#" className="home-detail-link">
+              <div>Details</div>
+            </a>
+          </div>
         </section>
       ))}
-
-      {/* <!-- Old Content--> */}
-
-      {/* {booksData.map((book) => 
-        <section>
-          <a href="#">
-            <img src={book.imageUrl}/>
-          </a>
-          <div>{book.title}</div>
-          <div>{book.author}</div>
-          <div>{book.publisher}</div>
-          <div>{book.pages}</div>
-          <div>{book.rating}</div>
-          <div>{book.synopsis}</div>
-          <a href="#" class="home-detail-link"><div>Details</div></a>
-        </section>
-        ) } */}
     </main>
   );
 }
