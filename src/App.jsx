@@ -1,4 +1,3 @@
-import "./app.css";
 import { useState } from "react";
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
@@ -13,8 +12,7 @@ import Update from "./components/Update.jsx";
 import Footer from "./shared/Footer.jsx";
 import Header from "./shared/Header.jsx";
 import { Routes, Route } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function App() {
   // Import useState and create a new state for a user. Remember the setter function.
@@ -33,7 +31,7 @@ function App() {
   return (
     <>
       <Header user={user} setUser={setUser} icon="fa-solid fa-bars" />
- 
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
